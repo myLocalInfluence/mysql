@@ -27,7 +27,7 @@ func init() {
 	}
 	zwPool = &sync.Pool{
 		New: func() any {
-			zw, err := zlib.NewWriterLevel(new(bytes.Buffer), 2)
+			zw, err := zlib.NewWriterLevel(new(bytes.Buffer), zlib.BestCompression)
 			if err != nil {
 				panic(err) // compress/zlib return non-nil error only if level is invalid
 			}
